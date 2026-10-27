@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080812">
+
+  <title>MyPortfolio | Home</title>
+
+  <link rel="stylesheet" href="/CSS/style.css">
+  <script src="/JavaScript/script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <a href="index.html" class="logo">
+      My<span>Portfolio</span>
+    </a>
+
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="ideas.html">Future Ideas</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Animated Banner -->
+    <section class="hero">
+
+      <div class="banner">
+        <div class="banner-glow"></div>
+
+        <div class="banner-orbit orbit-one">
+          <span class="orbit-dot"></span>
+        </div>
+
+        <div class="banner-orbit orbit-two">
+          <span class="orbit-dot"></span>
+        </div>
+
+        <div class="banner-orbit orbit-three">
+          <span class="orbit-dot"></span>
+        </div>
+
+        <div class="banner-particles" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="banner-surface"></div>
+      </div>
+
+      <!-- Introduction -->
+      <div class="intro">
+        <h1>
+          Turning Ideas Into
+          <span class="gradient-text">Reality</span>
+        </h1>
+
+        <div class="roles">
+          <span>Dreamer</span>
+          <i></i>
+          <span>Learner</span>
+          <i></i>
+          <span>Explorer</span>
+        </div>
+
+        <p class="description">
+          "You try you fail, but true failure is when you stop trying."<br class="desktop-break">
+          Welcome to my corner of the internet. <br class="desktop-break">
+          A place  where I document what I've built,<br class="desktop-break">
+          what I'm learning, and what I hope to create next.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- Navigation Cards -->
+    <section class="content-section">
+
+      <div class="navigation-grid">
+
+        <a href="projects.html" class="navigation-card">
+          <div class="card-icon code-icon" aria-hidden="true">
+            &lt;/&gt;
+          </div>
+
+          <h2>Projects</h2>
+
+          <p>
+            Explore my work and creations.
+            From Discord bots to ML Model.
+          </p>
+
+          <span class="card-link">
+            View Projects
+            <span class="arrow">⟶</span>
+          </span>
+        </a>
+
+        <a href="ideas.html" class="navigation-card">
+          <div class="card-icon bulb-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18h6"></path>
+              <path d="M10 22h4"></path>
+              <path d="M8.5 14.5A7 7 0 1 1 15.5 14.5
+                       C14.5 15.3 14 16.3 14 18h-4
+                       c0-1.7-.5-2.7-1.5-3.5Z"></path>
+            </svg>
+          </div>
+
+          <h2>Future Ideas</h2>
+
+          <p>
+            Concepts and ideas for what's<br>
+            coming next.
+          </p>
+
+          <span class="card-link">
+            View Ideas
+            <span class="arrow">⟶</span>
+          </span>
+        </a>
+
+        <a href="contact.html" class="navigation-card">
+          <div class="card-icon mail-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+              <path d="m4 7 8 6 8-6"></path>
+            </svg>
+          </div>
+
+          <h2>Contact</h2>
+
+          <p>
+            Have a question or just want<br>
+            to say hello? Feel free to reach out.
+          </p>
+
+          <span class="card-link">
+            Get in Touch
+            <span class="arrow">⟶</span>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© <span id="year">2026</span> Neha Sengupta. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+
+
+       

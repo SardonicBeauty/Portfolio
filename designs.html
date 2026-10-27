@@ -1,0 +1,218 @@
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080812">
+
+  <title>MyPortfolio | Designs</title>
+
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">
+      My<span>Portfolio</span>
+    </a>
+
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="ideas.html">Future Ideas</a>
+      <a href="designs.html" class="active">Designs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <span class="eyebrow">MY CREATIVE SPACE</span>
+      <h1>Designs & Art</h1>
+      <p>
+        A collection of covers, wallpapers, digital art,
+        and ideas brought to life through design.
+      </p>
+    </section>
+
+    <section class="designs-section">
+
+      <div class="designs-intro">
+        <h2>My Design Gallery</h2>
+        <p>
+          Every design tells a story. Explore some of my
+          creative experiments and visual concepts.
+        </p>
+      </div>
+
+      <div class="design-filters" aria-label="Filter designs">
+        <button class="design-filter active"
+                type="button" data-filter="all"
+                aria-pressed="true">
+          All Designs
+        </button>
+
+        <button class="design-filter"
+                type="button" data-filter="covers"
+                aria-pressed="false">
+          Covers
+        </button>
+
+        <button class="design-filter"
+                type="button" data-filter="wallpapers"
+                aria-pressed="false">
+          Wallpapers
+        </button>
+
+        <button class="design-filter"
+                type="button" data-filter="art"
+                aria-pressed="false">
+          Digital Art
+        </button>
+
+        <button class="design-filter"
+                type="button" data-filter="posters"
+                aria-pressed="false">
+          Posters
+        </button>
+      </div>
+
+      <div class="design-gallery">
+
+        <article class="design-item" data-category="covers">
+          <div class="design-image">
+            <img
+              src="../Images/designs/cover-design.png"
+              alt="Creative cover design"
+              loading="lazy"
+            >
+          </div>
+          <div class="design-info">
+            <h3>Cover Design</h3>
+            <p>A visual concept designed to capture attention and mood.</p>
+            <span class="design-category">Cover Design</span>
+          </div>
+        </article>
+
+        <article class="design-item" data-category="wallpapers">
+          <div class="design-image">
+            <img
+              src="../Images/designs/wallpaper.png"
+              alt="Custom wallpaper design"
+              loading="lazy"
+            >
+          </div>
+          <div class="design-info">
+            <h3>Dreamscape</h3>
+            <p>A wallpaper concept inspired by color, atmosphere, and light.</p>
+            <span class="design-category">Wallpaper</span>
+          </div>
+        </article>
+
+        <article class="design-item" data-category="art">
+          <div class="design-image">
+            <img
+              src="../Images/designs/digital-art.jpg"
+              alt="Digital artwork"
+              loading="lazy"
+            >
+          </div>
+          <div class="design-info">
+            <h3>Digital Art</h3>
+            <p>An exploration of shapes, lighting, and visual storytelling.</p>
+            <span class="design-category">Digital Art</span>
+          </div>
+        </article>
+
+        <article class="design-item" data-category="covers">
+          <div class="design-image">
+            <img
+              src="../Images/designs/book-cover.png"
+              alt="Book cover concept"
+              loading="lazy"
+            >
+          </div>
+          <div class="design-info">
+            <h3>Book Cover Concept</h3>
+            <p>A cover concept built around typography and atmosphere.</p>
+            <span class="design-category">Cover Design</span>
+          </div>
+        </article>
+
+        <article class="design-item" data-category="art">
+          <div class="design-image">
+            <img
+              src="../Images/designs/fantasy-art.png"
+              alt="Fantasy-inspired digital artwork"
+              loading="lazy"
+            >
+          </div>
+          <div class="design-info">
+            <h3>Fantasy Worlds</h3>
+            <p>A creative concept inspired by imaginary places and stories.</p>
+            <span class="design-category">Digital Art</span>
+          </div>
+        </article>
+
+        <article class="design-item" data-category="posters">
+          <div class="design-image">
+            <img
+              src="../Images/designs/poster-design.jpg"
+              alt="Poster graphic design"
+              loading="lazy"
+            >
+          </div>
+          <div class="design-info">
+            <h3>Poster Design</h3>
+            <p>A graphic composition focused on layout and visual impact.</p>
+            <span class="design-category">Poster</span>
+          </div>
+        </article>
+
+      </div>
+
+      <a href="index.html" class="back-link">
+        ← Back to Home
+      </a>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year">2026</span> MyPortfolio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    const filterButtons = document.querySelectorAll(".design-filter");
+    const designItems = document.querySelectorAll(".design-item");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selectedFilter = button.dataset.filter;
+
+        filterButtons.forEach((item) => {
+          const isActive = item === button;
+          item.classList.toggle("active", isActive);
+          item.setAttribute("aria-pressed", String(isActive));
+        });
+
+        designItems.forEach((item) => {
+          const matches =
+            selectedFilter === "all" ||
+            item.dataset.category === selectedFilter;
+
+          item.hidden = !matches;
+        });
+      });
+    });
+  </script>
+
+</body>
+</html> -->

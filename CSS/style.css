@@ -1,0 +1,1043 @@
+
+/* ========================================
+   1. GLOBAL STYLES
+======================================== */
+
+:root {
+  --background: #08080d;
+  --surface: #11111b;
+  --surface-hover: #191727;
+  --text: #f3f0ff;
+  --text-muted: #aaa5bd;
+  --purple: #9b5cff;
+  --purple-light: #c4a0ff;
+  --pink: #e1a1ff;
+  --border: rgba(185, 145, 255, 0.2);
+  --glow: rgba(155, 92, 255, 0.35);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+
+  color: var(--text);
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(102, 48, 180, 0.13),
+      transparent 45%
+    ),
+    var(--background);
+
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  color: white;
+  background: rgba(155, 92, 255, 0.55);
+}
+
+
+/* ========================================
+   2. HEADER AND NAVIGATION
+======================================== */
+
+.site-header {
+  width: min(100% - 48px, 1100px);
+  margin: 0 auto;
+  padding: 22px 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.logo {
+  flex-shrink: 0;
+  color: var(--text);
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+}
+
+.logo span {
+  color: var(--purple-light);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.navigation a {
+  position: relative;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+
+  transition: color 0.3s ease;
+}
+
+.navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--purple);
+  box-shadow: 0 0 10px var(--purple);
+
+  transition: width 0.3s ease;
+}
+
+.navigation a:hover,
+.navigation a.active {
+  color: var(--purple-light);
+}
+
+.navigation a:hover::after,
+.navigation a.active::after {
+  width: 100%;
+}
+
+
+/* ========================================
+   3. HERO SECTION
+======================================== */
+
+.hero {
+  padding: 65px 20px 40px;
+  text-align: center;
+}
+
+.banner {
+  position: relative;
+  isolation: isolate;
+
+  width: min(100%, 1000px);
+  min-height: 250px;
+  margin: 0 auto 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+  border: 1px solid rgba(180, 120, 255, 0.65);
+  border-radius: 25px;
+
+  background:
+    radial-gradient(
+      ellipse at 20% 20%,
+      rgba(111, 45, 220, 0.28),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 80%,
+      rgba(60, 40, 180, 0.25),
+      transparent 50%
+    ),
+    #0b0915;
+
+  box-shadow:
+    0 0 18px rgba(155, 92, 255, 0.35),
+    0 0 55px rgba(120, 50, 255, 0.16),
+    inset 0 0 35px rgba(155, 92, 255, 0.1);
+
+  opacity: 1;
+  transform: translateY(0) scale(1);
+
+  transition:
+    opacity 0.9s ease-in-out,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease;
+
+  will-change: opacity, transform;
+}
+
+/* Animated neon glow around the banner */
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    #7138ff 15%,
+    #e1a1ff 25%,
+    transparent 40%,
+    transparent 55%,
+    #8b4dff 70%,
+    #d8a4ff 80%,
+    transparent 95%
+  );
+
+  filter: blur(10px);
+  opacity: 0.75;
+
+  animation: borderGlow 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Flowing light inside the banner */
+
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border-radius: 24px;
+
+  background: linear-gradient(
+    120deg,
+    transparent 10%,
+    rgba(115, 60, 255, 0.1) 35%,
+    rgba(206, 126, 255, 0.22) 50%,
+    rgba(83, 55, 220, 0.1) 65%,
+    transparent 90%
+  );
+
+  background-size: 250% 250%;
+  animation: flowingGradient 7s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* Banner text */
+
+.banner-inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: 35px 20px;
+}
+
+.banner-label {
+  display: inline-block;
+  margin-bottom: 12px;
+
+  color: #c8a8ff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+
+  text-shadow: 0 0 15px rgba(180, 120, 255, 0.6);
+}
+
+.banner-inner h1 {
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #d8b6ff,
+    #a86aff,
+    #ffffff
+  );
+
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  animation: textShimmer 6s linear infinite;
+}
+
+.banner-inner p {
+  margin-top: 18px;
+  color: #d4c8f4;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.banner-inner p span {
+  padding: 0 8px;
+  color: #b879ff;
+}
+
+
+/* ========================================
+   4. ORBITING LIGHT TRAILS
+======================================== */
+
+.banner-orbit {
+  position: absolute;
+  z-index: -1;
+
+  left: -5%;
+  top: 50%;
+
+  width: 110%;
+  height: 100px;
+
+  border: 1px solid rgba(169, 101, 255, 0.65);
+  border-radius: 50%;
+
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px #9b5cff);
+}
+
+.orbit-one {
+  transform: translateY(-50%) rotate(-10deg);
+  animation: orbitOne 9s ease-in-out infinite;
+}
+
+.orbit-two {
+  height: 145px;
+  border-color: rgba(120, 80, 255, 0.5);
+
+  transform: translateY(-50%) rotate(12deg);
+  animation: orbitTwo 12s ease-in-out infinite;
+}
+
+.orbit-three {
+  height: 75px;
+  border-color: rgba(218, 155, 255, 0.45);
+
+  transform: translateY(-50%) rotate(-4deg);
+  animation: orbitThree 7s ease-in-out infinite;
+}
+
+
+/* ========================================
+   5. FLOATING PARTICLES
+======================================== */
+
+.banner-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.banner-particles span {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+
+  background: #e8caff;
+
+  box-shadow:
+    0 0 7px #c58aff,
+    0 0 18px #9b5cff;
+
+  animation: particleFloat 4s ease-in-out infinite alternate;
+}
+
+.banner-particles span:nth-child(1) {
+  top: 12%;
+  left: 12%;
+}
+
+.banner-particles span:nth-child(2) {
+  top: 25%;
+  right: 10%;
+  animation-delay: -1s;
+}
+
+.banner-particles span:nth-child(3) {
+  bottom: 12%;
+  left: 22%;
+  animation-delay: -2s;
+}
+
+.banner-particles span:nth-child(4) {
+  bottom: 20%;
+  right: 18%;
+  animation-delay: -0.5s;
+}
+
+.banner-particles span:nth-child(5) {
+  top: 8%;
+  left: 50%;
+  animation-delay: -1.5s;
+}
+
+.banner-particles span:nth-child(6) {
+  top: 50%;
+  left: 5%;
+  animation-delay: -2.5s;
+}
+
+.banner-particles span:nth-child(7) {
+  top: 55%;
+  right: 5%;
+  animation-delay: -1.8s;
+}
+
+.banner-particles span:nth-child(8) {
+  bottom: 8%;
+  right: 48%;
+  animation-delay: -3s;
+}
+
+
+/* ========================================
+   6. BANNER SCROLL FADE
+======================================== */
+
+.banner.banner-hidden {
+  opacity: 0;
+  transform: translateY(-25px) scale(0.98);
+  pointer-events: none;
+}
+
+
+/* ========================================
+   7. INTRODUCTION
+======================================== */
+
+.hero-text {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.hero-text p {
+  color: #bdb5d6;
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+
+/* ========================================
+   8. CONTENT SECTIONS
+======================================== */
+
+.content-section {
+  width: min(calc(100% - 40px), 1000px);
+  margin: 35px auto 75px;
+}
+
+.section-heading {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+
+  color: var(--purple-light);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.section-heading h2 {
+  margin-bottom: 8px;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+}
+
+.section-heading p {
+  color: var(--text-muted);
+}
+
+
+/* ========================================
+   9. NAVIGATION CARDS
+======================================== */
+
+.navigation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.navigation-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 265px;
+  padding: 26px;
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(24, 22, 39, 0.95),
+    rgba(13, 13, 22, 0.95)
+  );
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.navigation-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(180, 130, 255, 0.65);
+  background: var(--surface-hover);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.25),
+    0 0 24px rgba(155, 92, 255, 0.13);
+}
+
+.card-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--purple-light);
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  border: 1px solid var(--purple);
+  border-radius: 50%;
+
+  background: rgba(155, 92, 255, 0.08);
+  box-shadow: 0 0 18px rgba(155, 92, 255, 0.1);
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.navigation-card:hover .card-icon {
+  transform: scale(1.06);
+  background: rgba(155, 92, 255, 0.16);
+  box-shadow: 0 0 24px rgba(155, 92, 255, 0.25);
+}
+
+.navigation-card h3 {
+  margin-bottom: 10px;
+  color: var(--text);
+  font-size: 1.25rem;
+}
+
+.navigation-card p {
+  flex-grow: 1;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  width: fit-content;
+  margin-top: 18px;
+  padding-bottom: 5px;
+
+  color: var(--purple-light);
+  border-bottom: 1px solid var(--purple);
+
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+}
+
+.card-link span {
+  font-size: 1.25rem;
+}
+
+.navigation-card:hover .card-link {
+  gap: 18px;
+  color: white;
+}
+
+
+/* ========================================
+   10. SCROLL REVEAL
+======================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ========================================
+   11. INNER PAGE HEADERS
+======================================== */
+
+.page-header {
+  width: min(calc(100% - 40px), 1000px);
+  margin: 0 auto;
+  padding: 50px 0 25px;
+}
+
+.page-header h1 {
+  margin-bottom: 8px;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  line-height: 1.2;
+}
+
+.page-header p {
+  color: var(--text-muted);
+}
+
+.page-content {
+  width: min(calc(100% - 40px), 1000px);
+  margin: 20px auto 70px;
+}
+
+
+/* ========================================
+   12. PROJECT AND IDEA CARDS
+======================================== */
+
+.project-grid,
+.ideas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.project-card,
+.idea-card {
+  padding: 25px;
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  background: var(--surface);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.project-card:hover,
+.idea-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(180, 130, 255, 0.6);
+  box-shadow: 0 0 25px rgba(155, 92, 255, 0.1);
+}
+
+.project-card h2,
+.idea-card h2 {
+  margin-bottom: 10px;
+  color: var(--purple-light);
+  font-size: 1.2rem;
+}
+
+.project-card p,
+.idea-card p {
+  color: var(--text-muted);
+}
+
+.project-tag {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 4px 10px;
+
+  color: var(--purple-light);
+  font-size: 0.8rem;
+
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: rgba(155, 92, 255, 0.08);
+}
+
+
+/* ========================================
+   13. CONTACT FORM
+======================================== */
+
+.contact-form {
+  width: min(100%, 650px);
+  margin: 0 auto;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  background: rgba(17, 17, 27, 0.85);
+  box-shadow: 0 0 35px rgba(155, 92, 255, 0.06);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group label {
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 15px;
+
+  color: var(--text);
+  background: #0b0b13;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--purple);
+  background: #0f0d19;
+  box-shadow: 0 0 15px rgba(155, 92, 255, 0.12);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #777187;
+}
+
+.submit-button {
+  padding: 13px 22px;
+
+  color: white;
+  font-weight: 700;
+
+  background: linear-gradient(135deg, #9b5cff, #7136c5);
+
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+
+  box-shadow: 0 0 20px rgba(155, 92, 255, 0.18);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.12);
+  box-shadow: 0 0 28px rgba(155, 92, 255, 0.35);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.form-note {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+
+/* ========================================
+   14. BACK LINK
+======================================== */
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: var(--purple-light);
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.back-link:hover {
+  color: white;
+  transform: translateX(-4px);
+}
+
+
+/* ========================================
+   15. FOOTER
+======================================== */
+
+.site-footer {
+  width: min(calc(100% - 40px), 1000px);
+  margin: 0 auto;
+  padding: 25px 0 35px;
+
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+
+  border-top: 1px solid rgba(185, 145, 255, 0.1);
+}
+
+
+/* ========================================
+   16. ANIMATION KEYFRAMES
+======================================== */
+
+@keyframes borderGlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes flowingGradient {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes textShimmer {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes orbitOne {
+  0%, 100% {
+    transform: translateY(-50%) rotate(-10deg) scaleX(1);
+  }
+
+  50% {
+    transform: translateY(-55%) rotate(4deg) scaleX(0.96);
+  }
+}
+
+@keyframes orbitTwo {
+  0%, 100% {
+    transform: translateY(-50%) rotate(12deg) scaleX(1);
+  }
+
+  50% {
+    transform: translateY(-45%) rotate(-8deg) scaleX(1.03);
+  }
+}
+
+@keyframes orbitThree {
+  0%, 100% {
+    transform: translateY(-50%) rotate(-4deg);
+  }
+
+  50% {
+    transform: translateY(-45%) rotate(8deg);
+  }
+}
+
+@keyframes particleFloat {
+  from {
+    opacity: 0.35;
+    transform: translate3d(0, 5px, 0) scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, -10px, 0) scale(1.4);
+  }
+}
+
+
+/* ========================================
+   17. RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+  .site-header {
+    width: calc(100% - 32px);
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navigation {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .hero {
+    padding: 45px 16px 30px;
+  }
+
+  .banner {
+    min-height: 220px;
+    margin-bottom: 35px;
+    border-radius: 20px;
+  }
+
+  .banner-inner {
+    padding: 30px 16px;
+  }
+
+  .banner-label {
+    letter-spacing: 2px;
+  }
+
+  .banner-inner p {
+    font-size: 0.85rem;
+  }
+
+  .banner-orbit {
+    width: 120%;
+    left: -10%;
+  }
+
+  .navigation-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .navigation-card {
+    min-height: 220px;
+    padding: 22px;
+  }
+
+  .project-grid,
+  .ideas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+
+  .contact-form {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 420px) {
+  .navigation {
+    gap: 14px;
+  }
+
+  .navigation a {
+    font-size: 0.85rem;
+  }
+
+  .banner {
+    min-height: 195px;
+  }
+
+  .banner-inner h1 {
+    font-size: 1.8rem;
+  }
+
+  .banner-inner p span {
+    padding: 0 3px;
+  }
+
+  .banner-particles span {
+    width: 4px;
+    height: 4px;
+  }
+
+  .contact-form {
+    padding: 17px;
+  }
+}
+
+
+/* ========================================
+   18. REDUCED MOTION ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .banner.banner-hidden {
+    opacity: 1;
+    transform: none;
+  }
+}
